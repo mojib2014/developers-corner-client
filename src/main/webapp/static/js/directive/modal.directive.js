@@ -1,26 +1,58 @@
 /**
  * 
  */
-angular.module('developersCorner').directive('modal', function() {
-	return {
-		template: `
-			<div class="modal-dialog" role="document">
-			    <div class="modal-content">
-			      <div class="modal-header">
-			        <h5 class="modal-title">Modal title</h5>
-			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-			          <span aria-hidden="true">&times;</span>
-			        </button>
-			      </div>
-			      <div class="modal-body">
-			        <p>Modal body text goes here. {{showModal}}</p>
-			      </div>
-			      <div class="modal-footer">
-			        <button type="button" class="btn btn-primary">Save changes</button>
-			        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-			      </div>
-			    </div>
-  			</div>
-		`
+(function() {
+	angular.module('developersCorner').directive('myModal', myModal);
+
+	function myModal(NotificationService) {
+		const $ = (selector) => document.querySelector(selector);
+		return {
+			link: function(scope, element, attrs) {
+				scope.message = NotificationService.message;
+				scope.type = NotificationService.type;
+				// ensure id attribute exists
+				if (!attrs.id) {
+					console.error('modal must have an id');
+					return;
+				}
+
+				// move element to bottom of page (just before </body>) so it can be displayed above everything else
+				$('body').append(element);
+
+				// close modal on background click
+				element.on('click', function(e) {
+					const target = $(e.target);
+					if (!target.closest('.modal-body').length) {
+						scope.$evalAsync(close);
+					}
+				});
+
+				// add self (this modal instance) to the modal service so it's accessible from controllers
+				const modal = {
+					id: attrs.id,
+					open,
+					close
+				};
+				NotificationService.add(modal);
+
+				// remove self from modal service when directive is destroyed
+				scope.$on('$destroy', function() {
+					NotificationService.remove(attrs.id);
+					element.remove();
+				});
+
+				// open modal
+				function open() {
+					element.show();
+					$('body').addClass('modal-open');
+				}
+
+				// close modal
+				function close() {
+					element.hide();
+					$('body').removeClass('modal-open');
+				}
+			}
+		}
 	}
-})
+})();

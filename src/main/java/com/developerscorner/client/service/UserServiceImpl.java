@@ -59,23 +59,15 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public ResponseEntity<?> update(Long id, UserRegistrationDto dto) {
-		ResponseEntity<User> res = findById(id);
-		User user = res.getBody();
-		user.setFirstName(dto.getFirstName());
-		user.setLastName(dto.getLastName());
-		user.setNickName(dto.getNickName());
-		user.setEmail(dto.getEmail());
-		user.setPassword(dto.getPassword());
-		user.setType(dto.getType());
-		restTemplate.put(BASE_URL + "/users/" + id, user);
+		restTemplate.put(BASE_URL + "/users/" + id, dto);
 		
 		return new ResponseEntity<Void>(HttpStatus.ACCEPTED);
 	}
 
 	@Override
-	public void delete(Long id) {
-		
-		
+	public ResponseEntity<?> delete(Long id) {
+		restTemplate.delete(BASE_URL + "/" + id, ResponseEntity.class);
+		return new ResponseEntity<Void>(HttpStatus.ACCEPTED);
 	}
 
 }

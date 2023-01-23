@@ -47,6 +47,10 @@ ul li a {
 	bottom: 25vh;
 }
 
+.modal {
+	display: none;
+}
+
 /******************** Modal *****************/
 footer {
 	background-color: #777;

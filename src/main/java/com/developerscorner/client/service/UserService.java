@@ -15,5 +15,5 @@ public interface UserService {
 	ResponseEntity<User> findByEmail(String email);
 	ResponseEntity<AuthResponse> save(UserRegistrationDto dto);
 	ResponseEntity<?> update(Long id, UserRegistrationDto dto);
-	void delete(Long id);
+	ResponseEntity<?> delete(Long id);
 }

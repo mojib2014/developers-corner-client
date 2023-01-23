@@ -11,9 +11,17 @@ import com.developerscorner.client.dto.UserLoginDto;
 public class MainController {
 
 	@GetMapping(value = "/")
-	public ModelAndView home() {
+	public ModelAndView index() {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("index");
+		mv.addObject("message", "Hello");
+		return mv;
+	}
+	
+	@GetMapping(value = "/home")
+	public ModelAndView home() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("home");
 		mv.addObject("message", "Hello");
 		return mv;
 	}

@@ -4,58 +4,17 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 public class User {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-
-	@NotNull(message = "First Name is required and must be at least 5 characters long")
-	@Size(min = 5, max = 20)
 	private String firstName;
-
-	@NotNull(message = "Last Name is required and must be at least 5 characters long")
-	@Size(min = 5, max = 20)
 	private String lastName;
-
 	private String nickName;
-
-	@NotNull(message = "Email is required and must be a valid email")
 	private String email;
-
-	@NotNull(message = "Password is required and must be at least 6 characters long")
 	private String password;
-
-	@NotNull(message = "Role is a required field")
 	private String type;
-
-	@JsonIgnore
-	@Enumerated(EnumType.STRING)
 	private Role role;
-
-	@Column(nullable = false, columnDefinition = "TIMESTAMP")
 	private LocalDate createdAt;
-
-	@OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Question> questions;
 
 	public String getUsername() {
@@ -152,10 +111,6 @@ public class User {
 
 	public void setQuestions(List<Question> questions) {
 		this.questions = questions;
-	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
 	}
 
 	public void setPassword(String password) {
