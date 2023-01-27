@@ -10,8 +10,10 @@
 		$scope.userRole = "";
 		$scope.displayAnswers = false;
 
-
-		if(AuthService.getToken()) fetchAllUserQuestions();
+		if(AuthService.getToken() && window.location.href.indexOf('questions') > -1) {
+			fetchAllUserQuestions();
+		}
+			
 
 		async function fetchAllUserQuestions() {
 			const user = await AuthService.getCurrentUser();
@@ -74,11 +76,11 @@
 		}
 
 		// Fetch topics from mdn
-		const fetchResourceFromMdn = async (url) => {
+		/*const fetchResourceFromMdn = async (url) => {
 			const result = await fetch(url);
 			const res = await result.json();
 			console.log(res);
 			return res;
-		}
+		}*/
 	};
 })();

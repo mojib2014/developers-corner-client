@@ -1,7 +1,7 @@
 
 <div class="container panel panel-default mt-5"
 	ng-controller="ProfileController">
-	<h1 class="mb-4">{{user.lastName}}'s Profile</h1>
+	<h1 class="mb-4" id="title">{{user.lastName}}'s Profile</h1>
 	<table class="table table-hover">
 		<thead>
 			<tr>
@@ -15,11 +15,11 @@
 			<tr>
 				<td>{{user.firstName}}</td>
 				<td>{{user.lastName}}</td>
-				<td>{{user.email}}</td>
+				<td id="email">{{user.email}}</td>
 				<td>{{user.createdAt[1]}} {{user.createdAt[2]}}
 					{{user.createdAt[0]}}</td>
 				<td>
-					<button type="button" ng-click="openModal(user)"
+					<button type="button" id="openModalBtn" ng-click="openModal(user)"
 						class="btn btn-success custom-width">Edit</button>
 					<button type="button" ng-click="deleteUserProfile(user.id)"
 						class="btn btn-danger custom-width">Remove</button>
@@ -30,8 +30,8 @@
 	<div ng-show="showModal" class="modal-container" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h5 class="modal-title">Edit Question Form</h5>
-				<button ng-click="closeModal()" type="button" class="close"
+				<h5 class="modal-title">Edit Profile Form</h5>
+				<button ng-click="closeModal()" id="closeModal" type="button" class="close"
 					data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
@@ -76,7 +76,7 @@
 					</div>
 
 					<div class="input-group mb-3">
-						<span class="input-group-text" id="email">Email </span> <input
+						<span class="input-group-text" id="formEmail">Email </span> <input
 							type="email" name="email" ng-model="user.email"
 							class="form-control" placeholder="john.doe@domain.com"
 							aria-label="Eamil" aria-describedby="Email" required />
@@ -96,7 +96,7 @@
 									d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zM5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" />
 							</svg>
 						</span> <input type="password" ng-model="user.password" name="password"
-							class="form-control" placeholder="m@2#ac%" aria-label="Password"
+							id="password" class="form-control" placeholder="m@2#ac%" aria-label="Password"
 							aria-describedby="basic-addon1" required ng-minlength="6" />
 					</div>
 					<!-- Password errors  -->
@@ -110,7 +110,7 @@
 						ng-show="profileForm.$error.password">This field is invalid</div>
 
 					<div class="form-actions floatRight">
-						<input class="btn btn-primary" type="submit" value="Go" />
+						<input class="btn btn-primary" id="submitBtn" type="submit" value="Edit" />
 					</div>
 				</form>
 			</div>

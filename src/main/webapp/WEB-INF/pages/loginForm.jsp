@@ -1,10 +1,12 @@
     <main class="container" ng-controller="AuthController">
       <form ng-submit="login()" name="loginForm">
         <div class="panel container-xsm m-auto">
+          <div class="panel-title" id="title"><h1>Login Form</h1></div>
           <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1">@</span>
             <input
               type="email"
+              id="email"
               ng-model="user.email"
               name="email"
               class="form-control"
@@ -44,6 +46,7 @@
             </span>
             <input
               type="password"
+              id="password"
               ng-model="user.password"
               name="password"
               class="form-control"
@@ -79,6 +82,7 @@
               class="btn btn-primary"
               type="submit"
               value="Login"
+              id="loginBtn"
               ng-disabled="loginForm.$invalid"
             />
           </div>

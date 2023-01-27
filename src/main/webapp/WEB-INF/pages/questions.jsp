@@ -1,6 +1,6 @@
 <div ng-controller="QuestionController">
 	<div class="container panel panel-default mt-5">
-		<h1 class="mb-4">Your questions</h1>
+		<h1 class="mb-4" id="title">Your Questions</h1>
 		<h1>{{isLoggedIn}}</h1>
 		<table class="table table-hover">
 			<thead>
@@ -14,15 +14,15 @@
 			</thead>
 			<tbody>
 				<tr ng-repeat="question in questions">
-					<td>{{question.username}}</td>
+					<td id="username">{{question.username}}</td>
 					<td>{{question.tags}}</td>
 					<td>{{question.role}}</td>
 					<td>{{question.question}}</td>
 					<td>{{question.user.id}}</td>
 					<td>
-						<button type="button" ng-click="openModal(question)"
+						<button type="button" id="openModal" ng-click="openModal(question)"
 							class="btn btn-success custom-width">Edit</button>
-						<button type="button" ng-click="deleteUserQuestion(question.id)"
+						<button type="button" id="removeBtn" ng-click="deleteUserQuestion(question.id)"
 							class="btn btn-danger custom-width">Remove</button>
 					</td>
 				</tr>
@@ -43,7 +43,7 @@
 					<input type="hidden" ng-model="question.id" />
 					<div class="input-group mb-3">
 						<span class="input-group-text" id="basic-addon1">User Name</span>
-						<input type="text" name="username" ng-model="question.username"
+						<input type="text" name="username" id="formUsername" ng-model="question.username"
 							class="form-control" placeholder="mojib2014"
 							aria-label="Username" aria-describedby="basic-addon1" required />
 					</div>
@@ -58,17 +58,17 @@
 					</div>
 					<div class="input-group mb-3">
 						<span class="input-group-text" id="basic-addon1">Tags</span> <input
-							type="text" name="tags" ng-model="question.tags"
+							type="text" name="tags" id="tags" ng-model="question.tags"
 							class="form-control" placeholder="Java" aria-label="Tags"
 							aria-describedby="basic-addon1" required />
 					</div>
 					<div class="input-group mb-3">
-						<textarea name="topic" ng-model="question.question"
+						<textarea name="question" id="question" ng-model="question.question"
 							class="form-control" rows="3"
 							placeholder="Enter a topic you wanna search for" required></textarea>
 					</div>
 					<div class="form-actions floatRight">
-						<input class="btn btn-primary" type="submit" value="Go" />
+						<input class="btn btn-primary" type="submit" id="submitBtn" value="Save" />
 					</div>
 				</form>
 			</div>

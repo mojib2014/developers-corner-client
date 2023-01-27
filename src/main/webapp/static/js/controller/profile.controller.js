@@ -1,6 +1,6 @@
 (function() {
 	angular.module('developersCorner').controller("ProfileController", ["$scope", "ProfileService", "AuthService", function($scope, ProfileService, AuthService) {
-		$scope.user = null;
+		$scope.user = {};
 		$scope.showModal = false;
 		$scope.getUserProfile = getUserProfile;
 		$scope.editUserProfile = editUserProfile;

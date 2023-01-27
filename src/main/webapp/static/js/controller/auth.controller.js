@@ -37,6 +37,7 @@
 			AuthService.logout();
 			$scope.isLoggedIn = false;
 			localStorage.removeItem("isLoggedIn");
+			window.location = "#!/login";
 		}
 	};
 

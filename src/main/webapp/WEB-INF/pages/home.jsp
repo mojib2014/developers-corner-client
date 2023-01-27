@@ -1,6 +1,6 @@
 <div class="container" ng-controller="ChatController">
 	<section>
-		<h1>Welcome to Developers Corner</h1>
+		<h1 id="title">Welcome to Developers Corner</h1>
 		<p>This is the banner area</p>
 	</section>
 	<article class="row alignt-items-center"  ng-controller="QuestionController">
@@ -9,43 +9,44 @@
 			<h3>Your Status</h3>
 		</aside>
 		<section class="col col-8 ask-question-form possible-solutions">
-			<h2>Check In</h2>
+			<h2 id="question-form-title">Check In</h2>
 			<!-- Question form -->
 			<form ng-submit="fetchAnswersFromMdnAndStackoverflow()"
 				name="questionForm" ng-show="!displayAnswers">
 				<div class="input-group mb-3">
 					<span class="input-group-text" id="basic-addon1">User Name</span> <input
-						type="text" name="username" ng-model="question.username"
+						type="text" name="username" id="username" ng-model="question.username"
 						class="form-control" placeholder="mojib2014" aria-label="Username"
 						aria-describedby="basic-addon1" required />
 				</div>
 				<div class="mb-3">
 					<input type="radio" id="student" name="role"
-						ng-model="question.role" value="student"
+						ng-model="question.role" value="Student"
 						class="button btn-sm btn-info student-btn" required /> <label
 						class="mr-3" for="student">I'm a Student</label> <input
-						type="radio" id="mentor" name="role" value="mentor"
+						type="radio" id="mentor" name="role" value="Mentor"
 						class="button btn-sm btn-info mentor-btn" required /> <label
 						for="mentor">I'm a Mentor</label>
 				</div>
 				<div class="input-group mb-3">
-					<span class="input-group-text" id="basic-addon1">Tags</span> <input
-						type="text" name="tags" ng-model="question.tags"
+					<span class="input-group-text" for="tags">Tags</span> <input
+						type="text" name="tags" id="tags" ng-model="question.tags"
 						class="form-control" placeholder="Java" aria-label="Tags"
 						aria-describedby="basic-addon1" required />
 				</div>
 				<div class="input-group mb-3">
-					<textarea name="topic" ng-model="question.question"
+					<textarea name="question" id="question" ng-model="question.question"
 						class="form-control" rows="3"
 						placeholder="Enter a topic you wanna search for" required></textarea>
 				</div>
 				<div class="form-actions floatRight">
-					<input class="btn btn-primary" type="submit" value="Go" />
+					<input class="btn btn-primary" id="questionBtn" type="submit" value="Go" />
 				</div>
 			</form>
 			<div ng-show="displayAnswers">
 				<div>
 					<button ng-click="newQuestion()"
+						id="new-question-btn"
 						class="new-question btn btn-warning float-right mb-3">New
 						Question</button>
 					<h2 class="sub-title mb-3">Possible Solutions</h2>

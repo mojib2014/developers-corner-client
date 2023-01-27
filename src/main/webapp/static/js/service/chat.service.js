@@ -45,12 +45,11 @@
 			var message = JSON.parse(data), out = {};
 			out.message = message.message;
 			out.time = new Date(message.time);
-			return out;
+			return message;
 		};
 
 		var startListener = function() {
 			socket.stomp.subscribe(service.CHAT_TOPIC, function(data) {
-				console.log('subscription data', data);
 				listener.notify(getMessage(data.body));
 			});
 		};
