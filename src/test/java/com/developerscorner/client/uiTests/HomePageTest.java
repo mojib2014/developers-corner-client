@@ -15,7 +15,7 @@ import com.developerscorner.client.configuration.SeleniumConfig;
 
 public class HomePageTest extends SeleniumConfig {
 
-	private static final String baseUrl = "http://localhost:8080/";
+	private static final String baseUrl = "http://localhost:8080/#!/";
 
 	public HomePageTest() {
 	}

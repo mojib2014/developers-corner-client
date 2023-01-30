@@ -2,7 +2,6 @@ package com.developerscorner.client.uiTests;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
@@ -25,7 +24,6 @@ public class RegisterForm {
 	@FindBy(how = How.ID, using = "type")
 	WebElement type;
 	@FindBy(how = How.ID, using = "email")
-	@CacheLookup
 	WebElement email;
 	@FindBy(how = How.ID, using = "password")
 	WebElement password;
