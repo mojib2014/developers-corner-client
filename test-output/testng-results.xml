@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="10" total="27" passed="17" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2023-01-31T13:29:23 CST" name="Default suite" finished-at="2023-01-31T13:30:30 CST" duration-ms="67544">
+    <groups>
+    </groups>
+    <test started-at="2023-01-31T13:29:23 CST" name="Default test" finished-at="2023-01-31T13:30:30 CST" duration-ms="67544">
+      <class name="com.developerscorner.client.uiTests.HomePageTest">
+        <test-method is-config="true" signature="beforeSuite()[pri:0, instance:com.developerscorner.client.uiTests.HomePageTest@793f29ff]" started-at="2023-01-31T13:29:23 CST" name="beforeSuite" finished-at="2023-01-31T13:29:23 CST" duration-ms="27" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeSuite -->
+        <test-method is-config="true" signature="beforeMethodClass()[pri:0, instance:com.developerscorner.client.uiTests.HomePageTest@793f29ff]" started-at="2023-01-31T13:29:23 CST" name="beforeMethodClass" finished-at="2023-01-31T13:29:28 CST" duration-ms="5673" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethodClass -->
+        <test-method signature="shoulGetHomePage()[pri:0, instance:com.developerscorner.client.uiTests.HomePageTest@793f29ff]" started-at="2023-01-31T13:29:28 CST" name="shoulGetHomePage" finished-at="2023-01-31T13:29:28 CST" duration-ms="148" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- shoulGetHomePage -->
+        <test-method is-config="true" signature="close()[pri:0, instance:com.developerscorner.client.uiTests.HomePageTest@793f29ff]" started-at="2023-01-31T13:29:28 CST" name="close" finished-at="2023-01-31T13:29:28 CST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- close -->
+        <test-method signature="shouldDisplayFieldIsRequiredIfUsernameNotFilled()[pri:0, instance:com.developerscorner.client.uiTests.HomePageTest@793f29ff]" started-at="2023-01-31T13:29:28 CST" name="shouldDisplayFieldIsRequiredIfUsernameNotFilled" finished-at="2023-01-31T13:29:29 CST" duration-ms="560" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- shouldDisplayFieldIsRequiredIfUsernameNotFilled -->
+        <test-method is-config="true" signature="close()[pri:0, instance:com.developerscorner.client.uiTests.HomePageTest@793f29ff]" started-at="2023-01-31T13:29:29 CST" name="close" finished-at="2023-01-31T13:29:29 CST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- close -->
+        <test-method signature="shouldCreateQuestion()[pri:1, instance:com.developerscorner.client.uiTests.HomePageTest@793f29ff]" started-at="2023-01-31T13:29:29 CST" name="shouldCreateQuestion" finished-at="2023-01-31T13:29:30 CST" duration-ms="1133" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- shouldCreateQuestion -->
+        <test-method is-config="true" signature="close()[pri:0, instance:com.developerscorner.client.uiTests.HomePageTest@793f29ff]" started-at="2023-01-31T13:29:30 CST" name="close" finished-at="2023-01-31T13:29:30 CST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- close -->
+        <test-method is-config="true" signature="afterSuite()[pri:0, instance:com.developerscorner.client.uiTests.HomePageTest@793f29ff]" started-at="2023-01-31T13:30:30 CST" name="afterSuite" finished-at="2023-01-31T13:30:31 CST" duration-ms="333" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterSuite -->
+      </class> <!-- com.developerscorner.client.uiTests.HomePageTest -->
+      <class name="com.developerscorner.client.uiTests.LoginPageTest">
+        <test-method is-config="true" signature="beforeMethodClass()[pri:0, instance:com.developerscorner.client.uiTests.LoginPageTest@235ecd9f]" started-at="2023-01-31T13:29:39 CST" name="beforeMethodClass" finished-at="2023-01-31T13:29:40 CST" duration-ms="784" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethodClass -->
+        <test-method signature="shouldDisplayFieldRequiredIfEmailNotFilled()[pri:0, instance:com.developerscorner.client.uiTests.LoginPageTest@235ecd9f]" started-at="2023-01-31T13:29:40 CST" name="shouldDisplayFieldRequiredIfEmailNotFilled" finished-at="2023-01-31T13:29:40 CST" duration-ms="177" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- shouldDisplayFieldRequiredIfEmailNotFilled -->
+        <test-method is-config="true" signature="close()[pri:0, instance:com.developerscorner.client.uiTests.LoginPageTest@235ecd9f]" started-at="2023-01-31T13:29:40 CST" name="close" finished-at="2023-01-31T13:29:40 CST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- close -->
+        <test-method signature="shouldGetLoginPage()[pri:0, instance:com.developerscorner.client.uiTests.LoginPageTest@235ecd9f]" started-at="2023-01-31T13:29:40 CST" name="shouldGetLoginPage" finished-at="2023-01-31T13:29:40 CST" duration-ms="74" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- shouldGetLoginPage -->
+        <test-method is-config="true" signature="close()[pri:0, instance:com.developerscorner.client.uiTests.LoginPageTest@235ecd9f]" started-at="2023-01-31T13:29:40 CST" name="close" finished-at="2023-01-31T13:29:40 CST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- close -->
+        <test-method signature="shouldLogInAUser()[pri:0, instance:com.developerscorner.client.uiTests.LoginPageTest@235ecd9f]" started-at="2023-01-31T13:29:40 CST" name="shouldLogInAUser" finished-at="2023-01-31T13:29:41 CST" duration-ms="769" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- shouldLogInAUser -->
+        <test-method is-config="true" signature="close()[pri:0, instance:com.developerscorner.client.uiTests.LoginPageTest@235ecd9f]" started-at="2023-01-31T13:29:41 CST" name="close" finished-at="2023-01-31T13:29:41 CST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- close -->
+      </class> <!-- com.developerscorner.client.uiTests.LoginPageTest -->
+      <class name="com.developerscorner.client.uiTests.QuestionsPageTest">
+        <test-method is-config="true" signature="beforeMethodClass()[pri:0, instance:com.developerscorner.client.uiTests.QuestionsPageTest@202b0582]" started-at="2023-01-31T13:29:30 CST" name="beforeMethodClass" finished-at="2023-01-31T13:29:31 CST" duration-ms="822" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethodClass -->
+        <test-method signature="shouldCreateQuestion()[pri:0, instance:com.developerscorner.client.uiTests.QuestionsPageTest@202b0582]" started-at="2023-01-31T13:29:31 CST" name="shouldCreateQuestion" finished-at="2023-01-31T13:29:32 CST" duration-ms="1081" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- shouldCreateQuestion -->
+        <test-method signature="shouldDeleteAQuestion()[pri:0, instance:com.developerscorner.client.uiTests.QuestionsPageTest@202b0582]" started-at="2023-01-31T13:29:32 CST" name="shouldDeleteAQuestion" finished-at="2023-01-31T13:29:38 CST" duration-ms="5492" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- shouldDeleteAQuestion -->
+        <test-method is-config="true" signature="close()[pri:0, instance:com.developerscorner.client.uiTests.QuestionsPageTest@202b0582]" started-at="2023-01-31T13:29:32 CST" name="close" finished-at="2023-01-31T13:29:32 CST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- close -->
+        <test-method is-config="true" signature="close()[pri:0, instance:com.developerscorner.client.uiTests.QuestionsPageTest@202b0582]" started-at="2023-01-31T13:29:38 CST" name="close" finished-at="2023-01-31T13:29:38 CST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- close -->
+        <test-method signature="shouldDisplayFieldRequiredIfOneOfTheFieldsIsBlank()[pri:0, instance:com.developerscorner.client.uiTests.QuestionsPageTest@202b0582]" started-at="2023-01-31T13:29:38 CST" name="shouldDisplayFieldRequiredIfOneOfTheFieldsIsBlank" finished-at="2023-01-31T13:29:38 CST" duration-ms="594" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- shouldDisplayFieldRequiredIfOneOfTheFieldsIsBlank -->
+        <test-method is-config="true" signature="close()[pri:0, instance:com.developerscorner.client.uiTests.QuestionsPageTest@202b0582]" started-at="2023-01-31T13:29:38 CST" name="close" finished-at="2023-01-31T13:29:38 CST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- close -->
+        <test-method signature="shouldEditAQuestion()[pri:0, instance:com.developerscorner.client.uiTests.QuestionsPageTest@202b0582]" started-at="2023-01-31T13:29:38 CST" name="shouldEditAQuestion" finished-at="2023-01-31T13:29:39 CST" duration-ms="652" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- shouldEditAQuestion -->
+        <test-method is-config="true" signature="close()[pri:0, instance:com.developerscorner.client.uiTests.QuestionsPageTest@202b0582]" started-at="2023-01-31T13:29:39 CST" name="close" finished-at="2023-01-31T13:29:39 CST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- close -->
+        <test-method signature="shouldGetQuestionsPage()[pri:0, instance:com.developerscorner.client.uiTests.QuestionsPageTest@202b0582]" started-at="2023-01-31T13:29:39 CST" name="shouldGetQuestionsPage" finished-at="2023-01-31T13:29:39 CST" duration-ms="193" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- shouldGetQuestionsPage -->
+        <test-method is-config="true" signature="close()[pri:0, instance:com.developerscorner.client.uiTests.QuestionsPageTest@202b0582]" started-at="2023-01-31T13:29:39 CST" name="close" finished-at="2023-01-31T13:29:39 CST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- close -->
+      </class> <!-- com.developerscorner.client.uiTests.QuestionsPageTest -->
+      <class name="com.developerscorner.client.uiTests.ProfilePageTest">
+        <test-method is-config="true" signature="beforeMethodClass()[pri:0, instance:com.developerscorner.client.uiTests.ProfilePageTest@1ca3b418]" started-at="2023-01-31T13:29:41 CST" name="beforeMethodClass" finished-at="2023-01-31T13:29:42 CST" duration-ms="790" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethodClass -->
+        <test-method signature="shouldCheckCurrentUserExists()[pri:0, instance:com.developerscorner.client.uiTests.ProfilePageTest@1ca3b418]" started-at="2023-01-31T13:29:42 CST" name="shouldCheckCurrentUserExists" finished-at="2023-01-31T13:29:42 CST" duration-ms="83" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- shouldCheckCurrentUserExists -->
+        <test-method is-config="true" signature="close()[pri:0, instance:com.developerscorner.client.uiTests.ProfilePageTest@1ca3b418]" started-at="2023-01-31T13:29:42 CST" name="close" finished-at="2023-01-31T13:29:42 CST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- close -->
+        <test-method signature="shouldDisplayFieldRequiredIfOnceOfTheFieldsIsBlank()[pri:0, instance:com.developerscorner.client.uiTests.ProfilePageTest@1ca3b418]" started-at="2023-01-31T13:29:42 CST" name="shouldDisplayFieldRequiredIfOnceOfTheFieldsIsBlank" finished-at="2023-01-31T13:30:27 CST" duration-ms="45288" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- shouldDisplayFieldRequiredIfOnceOfTheFieldsIsBlank -->
+        <test-method is-config="true" signature="close()[pri:0, instance:com.developerscorner.client.uiTests.ProfilePageTest@1ca3b418]" started-at="2023-01-31T13:30:27 CST" name="close" finished-at="2023-01-31T13:30:27 CST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- close -->
+        <test-method signature="shouldEditProfile()[pri:0, instance:com.developerscorner.client.uiTests.ProfilePageTest@1ca3b418]" started-at="2023-01-31T13:30:27 CST" name="shouldEditProfile" finished-at="2023-01-31T13:30:28 CST" duration-ms="987" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- shouldEditProfile -->
+        <test-method is-config="true" signature="close()[pri:0, instance:com.developerscorner.client.uiTests.ProfilePageTest@1ca3b418]" started-at="2023-01-31T13:30:28 CST" name="close" finished-at="2023-01-31T13:30:28 CST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- close -->
+        <test-method signature="shouldGetProfilePage()[pri:0, instance:com.developerscorner.client.uiTests.ProfilePageTest@1ca3b418]" started-at="2023-01-31T13:30:28 CST" name="shouldGetProfilePage" finished-at="2023-01-31T13:30:28 CST" duration-ms="144" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- shouldGetProfilePage -->
+        <test-method is-config="true" signature="close()[pri:0, instance:com.developerscorner.client.uiTests.ProfilePageTest@1ca3b418]" started-at="2023-01-31T13:30:28 CST" name="close" finished-at="2023-01-31T13:30:28 CST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- close -->
+      </class> <!-- com.developerscorner.client.uiTests.ProfilePageTest -->
+      <class name="com.developerscorner.client.uiTests.RegisterPageTest">
+        <test-method is-config="true" signature="beforeMethodClass()[pri:0, instance:com.developerscorner.client.uiTests.RegisterPageTest@2034b64c]" started-at="2023-01-31T13:30:28 CST" name="beforeMethodClass" finished-at="2023-01-31T13:30:29 CST" duration-ms="796" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethodClass -->
+        <test-method signature="shouldDisplayFieldIsRequiredIfOneOfTheFieldIsBlank()[pri:0, instance:com.developerscorner.client.uiTests.RegisterPageTest@2034b64c]" started-at="2023-01-31T13:30:29 CST" name="shouldDisplayFieldIsRequiredIfOneOfTheFieldIsBlank" finished-at="2023-01-31T13:30:30 CST" duration-ms="665" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- shouldDisplayFieldIsRequiredIfOneOfTheFieldIsBlank -->
+        <test-method is-config="true" signature="close()[pri:0, instance:com.developerscorner.client.uiTests.RegisterPageTest@2034b64c]" started-at="2023-01-31T13:30:30 CST" name="close" finished-at="2023-01-31T13:30:30 CST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- close -->
+        <test-method signature="shouldRegisterAUser()[pri:0, instance:com.developerscorner.client.uiTests.RegisterPageTest@2034b64c]" started-at="2023-01-31T13:30:30 CST" name="shouldRegisterAUser" finished-at="2023-01-31T13:30:30 CST" duration-ms="541" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- shouldRegisterAUser -->
+        <test-method is-config="true" signature="close()[pri:0, instance:com.developerscorner.client.uiTests.RegisterPageTest@2034b64c]" started-at="2023-01-31T13:30:30 CST" name="close" finished-at="2023-01-31T13:30:30 CST" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- close -->
+      </class> <!-- com.developerscorner.client.uiTests.RegisterPageTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

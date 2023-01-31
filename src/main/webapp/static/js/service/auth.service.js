@@ -1,7 +1,7 @@
 (function() {
 	angular.module('developersCorner').factory('AuthService', AuthService);
 
-	function AuthService($http, $q, jwtHelper, UserService) {
+	function AuthService($http, $q, jwtHelper, UserService, $rootScope) {
 		const URL = 'http://localhost:8080';
 
 		const factory = {
@@ -56,8 +56,22 @@
 		};
 
 		function getToken() {
+			/*const token = localStorage.getItem('token');
+			if(token) return token;
+			window.location = "#!/login";*/
 			return localStorage.getItem('token');
 		}
+		
+		 function authenticate(){
+            //Authentication logic here
+            if(localStorage.getItem('isLoggedIn')){
+                //If authenticated, return anything you want, probably a user object
+                return true;
+            } else {
+                //Else send a rejection
+                return $q.reject('Not Authenticated');
+            }
+        }
 
 		return factory;
 	};

@@ -5,10 +5,12 @@
 		$scope.messages = [];
 		$scope.message = { sender: null, receiver: null, message: '' };
 		$scope.modalOpen = false;
-		$scope.currentUser = AuthService.getCurrentUser();
+		$scope.currentUser = null;
+		let user;
 
 		$scope.sendMessage = async function() {
-			const user = await AuthService.getCurrentUser();
+			if(AuthService.getToken())
+				user = await AuthService.getCurrentUser();
 			$scope.message.sender = user.email;
 			ChatService.send($scope.message);
 			$scope.message.message = "";
