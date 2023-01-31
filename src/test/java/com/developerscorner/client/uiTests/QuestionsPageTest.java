@@ -10,10 +10,10 @@ import java.time.Duration;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import com.developerscorner.client.configuration.SeleniumConfig;
+import com.developerscorner.client.uiTests.forms.HomePageForm;
 import com.developerscorner.client.uiTests.forms.QuestionsPageForm;
 
 public class QuestionsPageTest extends SeleniumConfig {
@@ -23,20 +23,15 @@ public class QuestionsPageTest extends SeleniumConfig {
 
 	public QuestionsPageTest() {
 	}
-	
-	@BeforeClass
-	void setup() {
-		new WebDriverWait(driver, Duration.ofSeconds(2)).until(ExpectedConditions.urlToBe(homePageUrl));
-	}
 
 	/**
 	 * Positive tests
 	 */
-	@Test(priority = 1)
+	@Test
 	void shouldGetQuestionsPage() {
 		try {
 			driver.navigate().to(baseUrl);
-			new WebDriverWait(driver, Duration.ofSeconds(3)).until(ExpectedConditions.urlToBe(baseUrl));
+			new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.urlToBe(baseUrl));
 			
 			QuestionsPageForm form = PageFactory.initElements(driver, QuestionsPageForm.class);
 
@@ -48,7 +43,31 @@ public class QuestionsPageTest extends SeleniumConfig {
 		}
 	}
 	
-	@Test(priority = 2)
+	@Test
+	void shouldCreateQuestion() {
+		try {
+			driver.get(homePageUrl);
+			new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.urlToBe(homePageUrl));
+			
+			HomePageForm form = PageFactory.initElements(driver, HomePageForm.class);
+
+			form.fillForm("testuser", "Java", "Generics example");
+
+			assertTrue(form.questionBtn.isEnabled(), "Button should be eanbled at this point");
+			form.submit();
+			
+			new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.visibilityOf(form.newQuestionBtn));
+			form.newQuestionBtn.click();
+			
+			new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.visibilityOf(form.questionFormTitle));
+			
+			assertTrue(form.questionFormTitle.isDisplayed());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@Test
 	void shouldEditAQuestion() {
 		try {
 			driver.get(baseUrl);
@@ -69,14 +88,14 @@ public class QuestionsPageTest extends SeleniumConfig {
 		}
 	}
 	
-	@Test(priority = 3)
+	@Test
 	void shouldDeleteAQuestion() {
 		try {
 			driver.navigate().to(baseUrl);
 			QuestionsPageForm form = PageFactory.initElements(driver, QuestionsPageForm.class);
 			
 			form.removeBtn.click();
-			new WebDriverWait(driver, Duration.ofSeconds(2)).until(ExpectedConditions.invisibilityOfAllElements(form.username));
+			new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.invisibilityOfAllElements(form.username));
 			assertNull(form.username.getText());
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -86,7 +105,7 @@ public class QuestionsPageTest extends SeleniumConfig {
 	/**
 	 * Negative tests
 	 */
-	@Test(priority = 4)
+	@Test
 	void shouldDisplayFieldRequiredIfOneOfTheFieldsIsBlank() {
 		try {
 			driver.navigate().to(baseUrl);

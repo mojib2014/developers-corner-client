@@ -1,9 +1,13 @@
 package com.developerscorner.client.configuration;
 
 import java.io.IOException;
+import java.time.Duration;
+
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
@@ -41,6 +45,7 @@ public class SeleniumConfig {
 		form.clear();
 		form.fillForm("testuser@email.com", "123456");
 		form.submit();
+		new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.urlToBe("http://localhost:8080/#!/"));
 	}
 	
 	@AfterMethod

@@ -7,10 +7,9 @@
         <methods>
           <include name="afterSuite"/>
           <include name="beforeSuite"/>
-          <include name="setup"/>
           <include name="beforeMethodClass"/>
-          <include name="close"/>
           <include name="shouldCheckCurrentUserExists"/>
+          <include name="close"/>
         </methods>
       </class> <!-- com.developerscorner.client.uiTests.ProfilePageTest -->
     </classes>

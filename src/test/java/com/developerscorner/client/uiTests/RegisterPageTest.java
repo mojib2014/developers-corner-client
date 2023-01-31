@@ -5,11 +5,9 @@ import static org.testng.Assert.assertTrue;
 
 import java.time.Duration;
 
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import com.developerscorner.client.configuration.SeleniumConfig;
@@ -18,27 +16,16 @@ import com.developerscorner.client.uiTests.forms.RegisterForm;
 
 public class RegisterPageTest extends SeleniumConfig {
 
-	private static final String baseUrl = "http://localhost:8080/#!/";
+	private static final String baseUrl = "http://localhost:8080/#!/register";
+	private static final String homePageUrl = "http://localhost:8080/#!/";
 
 	public RegisterPageTest() {
 	}
 
-	@BeforeClass
-	void setup() {
-		new WebDriverWait(driver, Duration.ofSeconds(2)).until(ExpectedConditions.urlToBe(baseUrl));
-	}
-
-	@Test(priority = 1)
+	@Test
 	public void shouldRegisterAUser() {
 		driver.get(baseUrl);
 		new WebDriverWait(driver, Duration.ofSeconds(2)).until(ExpectedConditions.urlToBe(baseUrl));
-
-		HomePageForm homeForm = PageFactory.initElements(driver, HomePageForm.class);
-		new Actions(driver).moveToElement(homeForm.logoutBtn).pause(Duration.ofSeconds(2)).click().perform();
-
-		new WebDriverWait(driver, Duration.ofSeconds(2)).until(ExpectedConditions.urlToBe(baseUrl));
-
-		driver.get(baseUrl + "register");
 
 		RegisterForm form = PageFactory.initElements(driver, RegisterForm.class);
 
@@ -51,16 +38,17 @@ public class RegisterPageTest extends SeleniumConfig {
 	 * Negative tests
 	 */
 
-	@Test(priority = 2)
+	@Test
 	void shouldDisplayFieldIsRequiredIfOneOfTheFieldIsBlank() {
-		new WebDriverWait(driver, Duration.ofSeconds(2)).until(ExpectedConditions.urlToBe(baseUrl));
+		driver.get(homePageUrl);
+		new WebDriverWait(driver, Duration.ofSeconds(2)).until(ExpectedConditions.urlToBe(homePageUrl));
 		
 		HomePageForm homeForm = PageFactory.initElements(driver, HomePageForm.class);
-		new Actions(driver).moveToElement(homeForm.logoutBtn).pause(Duration.ofSeconds(2)).click().perform();
+		homeForm.logoutBtn.click();
 
+
+		driver.get(baseUrl);
 		new WebDriverWait(driver, Duration.ofSeconds(2)).until(ExpectedConditions.urlToBe(baseUrl));
-
-		driver.get(baseUrl + "register");
 
 		RegisterForm form = PageFactory.initElements(driver, RegisterForm.class);
 

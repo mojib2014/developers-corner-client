@@ -28,7 +28,7 @@ public class HomePageTest extends SeleniumConfig {
 	void shoulGetHomePage() {
 		try {
 			driver.get(baseUrl);
-			new WebDriverWait(driver, Duration.ofSeconds(2)).until(ExpectedConditions.urlToBe(baseUrl));
+			new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.urlToBe(baseUrl));
 			HomePageForm form = PageFactory.initElements(driver, HomePageForm.class);
 
 			assertEquals(form.title.getText(), "Welcome to Developers Corner");
@@ -37,11 +37,11 @@ public class HomePageTest extends SeleniumConfig {
 		}
 	}
 
-	@Test
+	@Test(priority = 1)
 	void shouldCreateQuestion() {
 		try {
 			driver.get(baseUrl);
-			new WebDriverWait(driver, Duration.ofSeconds(2)).until(ExpectedConditions.urlToBe(baseUrl));
+			new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.urlToBe(baseUrl));
 			
 			HomePageForm form = PageFactory.initElements(driver, HomePageForm.class);
 
@@ -50,10 +50,10 @@ public class HomePageTest extends SeleniumConfig {
 			assertTrue(form.questionBtn.isEnabled(), "Button should be eanbled at this point");
 			form.submit();
 			
-			new WebDriverWait(driver, Duration.ofSeconds(2)).until(ExpectedConditions.visibilityOf(form.newQuestionBtn));
+			new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.visibilityOf(form.newQuestionBtn));
 			form.newQuestionBtn.click();
 			
-			new WebDriverWait(driver, Duration.ofSeconds(2)).until(ExpectedConditions.visibilityOf(form.questionFormTitle));
+			new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.visibilityOf(form.questionFormTitle));
 			
 			assertTrue(form.questionFormTitle.isDisplayed());
 		} catch (Exception e) {
