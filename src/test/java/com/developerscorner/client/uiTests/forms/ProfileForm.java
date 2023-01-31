@@ -1,4 +1,4 @@
-package com.developerscorner.client.uiTests;
+package com.developerscorner.client.uiTests.forms;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,41 +15,30 @@ public class ProfileForm {
 	}
 	
 	@FindBy(how=How.ID, using="title")
-	WebElement title;
-	
-	@FindBy(how=How.ID, using="email")
-	@CacheLookup
-	WebElement email;
-	
-	@FindBy(how=How.ID, using="openModalBtn")
-	WebElement openModalBtn;
-	
+	public WebElement title;
+	@FindBy(how=How.XPATH, using="//*[@id=\"fName\"]")
+	public WebElement fName;
+	@FindBy(how=How.XPATH, using="//*[@id=\"openModalBtn\"]")
+	public WebElement openModalBtn;
 	@FindBy(how=How.CLASS_NAME, using="modal-title")
-	WebElement modalTitle;
-	
+	public WebElement modalTitle;
 	@FindBy(how=How.ID, using="closeModal")
-	WebElement closeModal;
-	
+	public WebElement closeModal;
 	@FindBy(how=How.ID, using="firstName")
-	WebElement firstName;
-	
+	public WebElement firstName;
 	@FindBy(how=How.ID, using="lastName")
-	WebElement lastName;
-	
+	public WebElement lastName;
 	@FindBy(how=How.ID, using="nickName")
-	WebElement nickName;
-	
+	public WebElement nickName;
 	@FindBy(how=How.ID, using="formEmail")
-	WebElement formEmail;
-	
+	public WebElement formEmail;
 	@FindBy(how=How.ID, using="password")
 	@CacheLookup
-	WebElement password;
-	
+	public WebElement password;
 	@FindBy(how=How.ID, using="submitBtn")
-	WebElement submitBtn;
+	public WebElement submitBtn;
 	
-	void fillForm(String fName, String lName, String nName, String email, String pass) {
+	public void fillForm(String fName, String lName, String nName, String email, String pass) {
 		firstName.sendKeys(fName);
 		lastName.sendKeys(lName);
 		nickName.sendKeys(nName);
@@ -57,11 +46,11 @@ public class ProfileForm {
 		password.sendKeys(pass);
 	}
 	
-	void submit() {
+	public void submit() {
 		submitBtn.click();
 	}
 	
-	void clear() {
+	public void clear() {
 		firstName.clear();
 		lastName.clear();
 		nickName.clear();

@@ -1,4 +1,4 @@
-package com.developerscorner.client.uiTests;
+package com.developerscorner.client.uiTests.forms;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,9 +14,11 @@ public class LoginForm {
 	}
 
 	@FindBy(how = How.ID, using = "loginBtn")
-	WebElement loginBtn;
+	public WebElement loginBtn;
 	@FindBy(how = How.ID, using = "title")
-	WebElement title;
+	public WebElement title;
+	@FindBy(how = How.ID, using = "email-required")
+	public WebElement loginRequired;
 	@FindBy(how = How.ID, using = "email")
 	public WebElement email; // Email and Password public so that we can use it in config
 	@FindBy(how = How.ID, using = "password")

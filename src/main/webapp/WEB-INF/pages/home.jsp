@@ -17,8 +17,16 @@
 					<span class="input-group-text" id="basic-addon1">User Name</span> <input
 						type="text" name="username" id="username" ng-model="question.username"
 						class="form-control" placeholder="mojib2014" aria-label="Username"
-						aria-describedby="basic-addon1" required />
+						aria-describedby="basic-addon1" required ng-minlength="3" />
 				</div>
+				<!-- username errors -->
+				<div class="alert alert-danger" id="username-required"
+					ng-show="questionForm.username.$touched && questionForm.username.$error.required">
+					This is a required field</div>
+				<div class="alert alert-danger"
+					ng-show="questionForm.username.$error.minlength">Minimum
+					length required is 5</div>
+					
 				<div class="mb-3">
 					<input type="radio" id="student" name="role"
 						ng-model="question.role" value="Student"
@@ -28,19 +36,37 @@
 						class="button btn-sm btn-info mentor-btn" required /> <label
 						for="mentor">I'm a Mentor</label>
 				</div>
+				<!-- role errors -->
+				<div class="alert alert-danger"
+					ng-show="questionForm.role.$touched && questionForm.role.$error.required">
+					This is a required field</div>
+					
 				<div class="input-group mb-3">
 					<span class="input-group-text" for="tags">Tags</span> <input
 						type="text" name="tags" id="tags" ng-model="question.tags"
 						class="form-control" placeholder="Java" aria-label="Tags"
 						aria-describedby="basic-addon1" required />
 				</div>
+				<!-- tags errors -->
+				<div class="alert alert-danger"
+					ng-show="questionForm.tags.$touched && questionForm.tags.$error.required">
+					This is a required field</div>
+					
 				<div class="input-group mb-3">
 					<textarea name="question" id="question" ng-model="question.question"
 						class="form-control" rows="3"
 						placeholder="Enter a topic you wanna search for" required></textarea>
 				</div>
+				<!-- question errors -->
+				<div class="alert alert-danger"
+					ng-show="questionForm.question.$touched && questionForm.question.$error.required">
+					This is a required field</div>
+				<div class="alert alert-danger"
+					ng-show="questionForm.question.$error.minlength">Minimum
+					length required is 5</div>
+					
 				<div class="form-actions floatRight">
-					<input class="btn btn-primary" id="questionBtn" type="submit" value="Go" />
+					<input class="btn btn-primary" ng-disabled="questionForm.$invalid" id="questionBtn" type="submit" value="Go" />
 				</div>
 			</form>
 			<div ng-show="displayAnswers">

@@ -9,7 +9,7 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
 
-import com.developerscorner.client.uiTests.LoginForm;
+import com.developerscorner.client.uiTests.forms.LoginForm;
 
 
 public class SeleniumConfig {

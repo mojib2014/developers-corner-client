@@ -3,15 +3,16 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.developerscorner.client.uiTests.RegisterPageTest">
+      <class name="com.developerscorner.client.uiTests.ProfilePageTest">
         <methods>
           <include name="afterSuite"/>
           <include name="beforeSuite"/>
+          <include name="setup"/>
           <include name="beforeMethodClass"/>
-          <include name="shouldRegisterAUser"/>
           <include name="close"/>
+          <include name="shouldCheckCurrentUserExists"/>
         </methods>
-      </class> <!-- com.developerscorner.client.uiTests.RegisterPageTest -->
+      </class> <!-- com.developerscorner.client.uiTests.ProfilePageTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

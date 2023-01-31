@@ -13,9 +13,9 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td>{{user.firstName}}</td>
+				<td id="fName">{{user.firstName}}</td>
 				<td>{{user.lastName}}</td>
-				<td id="email">{{user.email}}</td>
+				<td>{{user.email}}</td>
 				<td>{{user.createdAt[1]}} {{user.createdAt[2]}}
 					{{user.createdAt[0]}}</td>
 				<td>
@@ -40,8 +40,8 @@
 				<form name="profileForm" ng-submit="editUserProfile(user)">
 					<input type="hidden" ng-model="user.id" />
 					<div class="input-group mb-3">
-						<span class="input-group-text" id="firstName">First Name </span> <input
-							type="text" name="firstName" ng-model="user.firstName"
+						<span class="input-group-text">First Name </span> <input
+							type="text" name="firstName" id="firstName" ng-model="user.firstName"
 							class="form-control" placeholder="John" aria-label="First Name"
 							aria-describedby="First Name" required ng-minlength="5" />
 					</div>
@@ -54,8 +54,8 @@
 
 
 					<div class="input-group mb-3">
-						<span class="input-group-text" id="lastName">Last Name </span> <input
-							type="text" name="lastName" ng-model="user.lastName"
+						<span class="input-group-text" >Last Name </span> <input
+							type="text" name="lastName" id="lastName" ng-model="user.lastName"
 							class="form-control" placeholder="Doe" aria-label="Last Name"
 							aria-describedby="Last Name" required ng-minlength="5" />
 					</div>
@@ -69,15 +69,15 @@
 
 
 					<div class="input-group mb-3">
-						<span class="input-group-text" id="nickName">Nick Name </span> <input
-							type="text" name="nickName" ng-model="user.nickName"
+						<span class="input-group-text">Nick Name </span> <input
+							type="text" name="nickName" id="nickName" ng-model="user.nickName"
 							class="form-control" placeholder="John (Optional)"
 							aria-label="Nick Name" aria-describedby="Nick Name" />
 					</div>
 
 					<div class="input-group mb-3">
-						<span class="input-group-text" id="formEmail">Email </span> <input
-							type="email" name="email" ng-model="user.email"
+						<span class="input-group-text">Email </span> <input
+							type="email" name="email" id="formEmail" ng-model="user.email"
 							class="form-control" placeholder="john.doe@domain.com"
 							aria-label="Eamil" aria-describedby="Email" required />
 					</div>
@@ -110,7 +110,7 @@
 						ng-show="profileForm.$error.password">This field is invalid</div>
 
 					<div class="form-actions floatRight">
-						<input class="btn btn-primary" id="submitBtn" type="submit" value="Edit" />
+						<input class="btn btn-primary"  ng-disabled="profileForm.$invalid" id="submitBtn" type="submit" value="Edit" />
 					</div>
 				</form>
 			</div>

@@ -1,4 +1,4 @@
-package com.developerscorner.client.uiTests;
+package com.developerscorner.client.uiTests.forms;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,19 +14,19 @@ public class RegisterForm {
 	}
 
 	@FindBy(how = How.ID, using = "registerBtn")
-	WebElement registerBtn;
+	public WebElement registerBtn;
 	@FindBy(how = How.ID, using = "firstName")
-	WebElement firstName;
+	public WebElement firstName;
 	@FindBy(how = How.ID, using = "lastName")
-	WebElement lastName;
+	public WebElement lastName;
 	@FindBy(how = How.ID, using = "nickName")
-	WebElement nickName;
+	public WebElement nickName;
 	@FindBy(how = How.ID, using = "type")
-	WebElement type;
+	public WebElement type;
 	@FindBy(how = How.ID, using = "email")
-	WebElement email;
+	public WebElement email;
 	@FindBy(how = How.ID, using = "password")
-	WebElement password;
+	public WebElement password;
 
 	public void fillForm(String fName, String lName, String nName, String testType, String testEmail, String pass) {
 		firstName.sendKeys(fName);
@@ -37,7 +37,7 @@ public class RegisterForm {
 		password.sendKeys(pass);
 	}
 
-	void clear() {
+	public void clear() {
 		firstName.clear();
 		lastName.clear();
 		nickName.clear();

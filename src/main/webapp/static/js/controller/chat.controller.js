@@ -5,7 +5,7 @@
 		$scope.messages = [];
 		$scope.message = { sender: null, receiver: null, message: '' };
 		$scope.modalOpen = false;
-		$scope.currentUser = AuthService.getCurrentUser();
+		$scope.currentUser = null;
 		let user;
 
 		$scope.sendMessage = async function() {

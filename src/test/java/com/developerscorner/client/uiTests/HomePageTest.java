@@ -1,17 +1,18 @@
 package com.developerscorner.client.uiTests;
 
 import static org.junit.Assert.assertEquals;
+import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
 import java.time.Duration;
 
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
 import com.developerscorner.client.configuration.SeleniumConfig;
+import com.developerscorner.client.uiTests.forms.HomePageForm;
 
 public class HomePageTest extends SeleniumConfig {
 
@@ -20,10 +21,14 @@ public class HomePageTest extends SeleniumConfig {
 	public HomePageTest() {
 	}
 
+	/**
+	 * Positive tests
+	 */
 	@Test
 	void shoulGetHomePage() {
 		try {
 			driver.get(baseUrl);
+			new WebDriverWait(driver, Duration.ofSeconds(2)).until(ExpectedConditions.urlToBe(baseUrl));
 			HomePageForm form = PageFactory.initElements(driver, HomePageForm.class);
 
 			assertEquals(form.title.getText(), "Welcome to Developers Corner");
@@ -36,15 +41,14 @@ public class HomePageTest extends SeleniumConfig {
 	void shouldCreateQuestion() {
 		try {
 			driver.get(baseUrl);
+			new WebDriverWait(driver, Duration.ofSeconds(2)).until(ExpectedConditions.urlToBe(baseUrl));
+			
 			HomePageForm form = PageFactory.initElements(driver, HomePageForm.class);
 
-			form.clear();
 			form.fillForm("testuser", "Java", "Java data types");
 
-			new Actions(driver).moveToElement(form.questionBtn).pause(Duration.ofSeconds(2)).click().perform();
-
-			new WebDriverWait(driver, Duration.ofSeconds(2)).until(ExpectedConditions.elementToBeClickable(form.tags));
-			assertEquals(form.tags.getText(), "Java");
+			assertTrue(form.questionBtn.isEnabled(), "Button should be eanbled at this point");
+			form.submit();
 			
 			new WebDriverWait(driver, Duration.ofSeconds(2)).until(ExpectedConditions.visibilityOf(form.newQuestionBtn));
 			form.newQuestionBtn.click();
@@ -57,4 +61,17 @@ public class HomePageTest extends SeleniumConfig {
 		}
 	}
 	
+	/**
+	 * Negative tests
+	 */
+	@Test
+	void shouldDisplayFieldIsRequiredIfUsernameNotFilled() {
+		driver.get(baseUrl);
+		HomePageForm form = PageFactory.initElements(driver, HomePageForm.class);
+		
+		form.fillForm("", "Spring MVC", "Selenium automated test in spring");
+		
+		assertEquals(form.usernameRequired.getText(), "This is a required field");
+		assertFalse(form.questionBtn.isEnabled());
+	}
 }

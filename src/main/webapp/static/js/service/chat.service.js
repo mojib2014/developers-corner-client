@@ -1,7 +1,7 @@
 (function() {
 	angular.module('developersCorner').factory('ChatService', ChatService);
 
-	function ChatService($q, $timeout, AuthService, $http) {
+	function ChatService($q, $timeout, AuthService) {
 		const service = {};
 		const listener = $q.defer();
 		const socket = {
@@ -20,11 +20,12 @@
 
 		service.send = function(message) {
 			console.log("message sent", message);
-			socket.stomp.send(service.CHAT_BROKER, {
-				priority: 9,
-				username: AuthService.getCurrentUser().email
-			}, JSON.stringify(message));
-	
+			if(AuthService.getToken()) {
+				socket.stomp.send(service.CHAT_BROKER, {
+					priority: 9,
+					username: AuthService.getCurrentUser().email
+				}, JSON.stringify(message));								
+			};
 		}
 		
 		/*function getMessages() {
@@ -55,10 +56,12 @@
 		};
 
 		var initialize = function() {
-			socket.client = new SockJS(service.SOCKET_URL);
-			socket.stomp = Stomp.over(socket.client);
-			socket.stomp.connect({username: AuthService.getCurrentUser().email}, startListener);
-			socket.stomp.onclose = reconnect;
+			if(AuthService.getToken) {
+				socket.client = new SockJS(service.SOCKET_URL);
+				socket.stomp = Stomp.over(socket.client);
+				socket.stomp.connect({username: AuthService.getCurrentUser().email}, startListener);
+				socket.stomp.onclose = reconnect;								
+			}
 		};
 
 		initialize();

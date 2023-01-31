@@ -44,8 +44,8 @@ public static WebDriver driver;
 				driver = new ChromeDriver();
 				driver.manage().window().maximize();
 				driver.manage().deleteAllCookies();
-				driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-				driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));	
+				driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(45));
+				driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(45));	
 			}else if(browserName.equalsIgnoreCase("IE")) {
 				driver = new InternetExplorerDriver();
 				driver.manage().window().maximize();

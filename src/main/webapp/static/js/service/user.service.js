@@ -36,7 +36,7 @@ angular.module('developersCorner').factory('UserService', ['$http', '$q', functi
 			.then((res) => {
 				defered.resolve(res.data)
 			}).catch((err) => {
-				console.log('Error fetching users', err);
+				console.log('Error fetching user by id', err);
 				defered.reject(err);
 			});
 
@@ -49,7 +49,7 @@ angular.module('developersCorner').factory('UserService', ['$http', '$q', functi
 			.then((res) => {
 				defered.resolve(res.data)
 			}).catch((err) => {
-				console.log('Error fetching users', err);
+				console.log('Error fetching user by email', err);
 				defered.reject(err);
 			});
 

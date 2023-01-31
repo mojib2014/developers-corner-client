@@ -5,8 +5,20 @@
 
 	app.config(Config);
 
-	app.run(function(authManager) {
+	app.run(function(authManager, $rootScope, $location) {
 		authManager.checkAuthOnRefresh();
+		$rootScope.$on('$locationChageStart', function() {
+			console.log("in locationChangeStart...");
+			$rootScope.previousPage = $location.pathname;
+		});
+		$rootScope.$on('$routeChangeError', function(event, current, previous, rejection) {
+			console.log("routeChageError")
+			if (rejection === 'Not Authenticated') {
+				$location.path('/');
+			}
+
+		});
+
 	});
 
 	function Config($httpProvider, jwtOptionsProvider, $routeProvider) {
@@ -24,7 +36,16 @@
 
 		// Routes
 		$routeProvider
-			.when('/', { templateUrl: 'home' })
+			.when('/',
+				{
+					templateUrl: 'home',
+					requireLogin: true,
+					resolve: {
+						'auth': function(AuthService) {
+							return AuthService.getToken();
+						}
+					}
+				})
 			.when('/login', { templateUrl: 'login' })
 			.when('/register', { templateUrl: 'register' })
 			.when('/questions', { templateUrl: 'questions' })

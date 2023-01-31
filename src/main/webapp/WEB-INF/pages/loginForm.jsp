@@ -19,6 +19,7 @@
           <!-- Email errors  -->
           <div
             class="alert alert-danger"
+            id="email-required"
             ng-show="
               loginForm.email.$touched && loginForm.email.$error.required
             "

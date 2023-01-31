@@ -1,4 +1,4 @@
-package com.developerscorner.client.uiTests;
+package com.developerscorner.client.uiTests.forms;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,25 +14,27 @@ public class HomePageForm {
 	}
 
 	@FindBy(how = How.ID, using = "questionBtn")
-	WebElement questionBtn;
+	public WebElement questionBtn;
 	@FindBy(how = How.ID, using = "title")
-	WebElement title;
+	public WebElement title;
 	@FindBy(how = How.ID, using = "username")
-	WebElement username;
+	public WebElement username;
 	@FindBy(how = How.ID, using = "student")
-	WebElement studentRole;
+	public WebElement studentRole;
 	@FindBy(how = How.ID, using = "tags")
-	WebElement tags;
+	public WebElement tags;
 	@FindBy(how = How.ID, using = "question")
-	WebElement question;
+	public WebElement question;
 	@FindBy(how = How.ID, using = "new-question-btn")
-	WebElement newQuestionBtn;
+	public WebElement newQuestionBtn;
 	@FindBy(how=How.ID, using="question-form-title")
-	WebElement questionFormTitle;
-	@FindBy(how=How.ID, using="logoutBtn")
-	WebElement logoutBtn;
+	public WebElement questionFormTitle;
+	@FindBy(how=How.XPATH, using="/html/body/header/div/nav/ul/li[3]/a")
+	public WebElement logoutBtn;
+	@FindBy(how=How.ID, using="username-required")
+	public WebElement usernameRequired;
 
-	void fillForm(String testUsername, String testTags, String testQuestion) {
+	public void fillForm(String testUsername, String testTags, String testQuestion) {
 		username.sendKeys(testUsername);
 		studentRole.click();
 		tags.sendKeys(testTags);
@@ -40,11 +42,11 @@ public class HomePageForm {
 
 	}
 
-	void submit() {
+	public void submit() {
 		questionBtn.click();
 	}
 	
-	void clear() {
+	public void clear() {
 		username.clear();
 		studentRole.clear();
 		tags.clear();
