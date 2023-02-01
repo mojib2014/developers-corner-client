@@ -10,9 +10,9 @@
 		};
 
 		service.RECONNECT_TIMEOUT = 30000;
-		service.SOCKET_URL = "http://localhost:8083/secured-room";
-		service.CHAT_TOPIC = "/queue/messages";
-		service.CHAT_BROKER = "/queue/messages";
+		service.SOCKET_URL = "http://localhost:8083/ws";
+		service.CHAT_TOPIC = '/user/specific';
+		service.CHAT_BROKER = "/app/private-message";
 
 		service.receive = function() {
 			return listener.promise;
@@ -21,10 +21,7 @@
 		service.send = function(message) {
 			console.log("message sent", message);
 			if(AuthService.getToken()) {
-				socket.stomp.send(service.CHAT_BROKER, {
-					priority: 9,
-					username: AuthService.getCurrentUser().email
-				}, JSON.stringify(message));								
+				socket.stomp.send(service.CHAT_BROKER, {}, JSON.stringify(message));								
 			};
 		}
 		
@@ -39,32 +36,32 @@
 		var reconnect = function() {
 			$timeout(function() {
 				initialize();
-			}, this.RECONNECT_TIMEOUT);
+			}, service.RECONNECT_TIMEOUT);
 		};
 
 		var getMessage = function(data) {
-			var message = JSON.parse(data), out = {};
-			out.message = message.message;
-			out.time = new Date(message.time);
+			console.log("recevie message: ===========", data);
+			var message = JSON.parse(data);
 			return message;
 		};
 
-		var startListener = function() {
+		var startListener = async function() {
+			const user = await AuthService.getCurrentUser();
 			socket.stomp.subscribe(service.CHAT_TOPIC, function(data) {
+				console.log("recevie data : 00000000: ", data);
 				listener.notify(getMessage(data.body));
 			});
 		};
 
-		var initialize = function() {
+		service.initialize = function() {
 			if(AuthService.getToken) {
 				socket.client = new SockJS(service.SOCKET_URL);
 				socket.stomp = Stomp.over(socket.client);
-				socket.stomp.connect({username: AuthService.getCurrentUser().email}, startListener);
+				socket.stomp.connect({}, startListener);
 				socket.stomp.onclose = reconnect;								
 			}
 		};
 
-		initialize();
 		return service;
 	}
 })();

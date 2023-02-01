@@ -17,13 +17,14 @@
 		};
 
 		ChatService.receive().then(null, null, function(message) {
-			console.log('received message', message);
+			console.log('received message================', message);
 			$scope.messages.push(message);
 		});
 		
 		$scope.openChatModal = function(receiver) {
 			$scope.message.receiver = receiver.email;
 			$scope.modalOpen = true;
+			ChatService.initialize();
 		}
 		
 		$scope.closeChatModal = function() {
